@@ -1,4 +1,4 @@
-const { model, Schema } = require('mongoose')
+import { model, Schema } from 'mongoose'
 
 // id: String, User ID
 
@@ -9,15 +9,16 @@ const { model, Schema } = require('mongoose')
 const roomSchema = new Schema(
 	{
 		userId: {
-			type: Schema.ObjectId,
+			type: Schema.Types.ObjectId,
 			ref: 'User',
 		},
 		status: {
 			type: String,
+			enum: ['active', 'busy'],
 			default: 'active',
 		},
 	},
 	{ timestamps: true }
 )
 
-module.exports = model('Room', roomSchema)
+export default model('Room', roomSchema)
