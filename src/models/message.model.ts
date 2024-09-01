@@ -8,7 +8,7 @@
 
 // timestamp: DateTime
 
-const { model, Schema } = require('mongoose')
+import { model, Schema } from 'mongoose'
 
 const messageSchema = new Schema(
 	{
@@ -26,4 +26,4 @@ const messageSchema = new Schema(
 	{ timestamps: true }
 )
 
-module.exports = model('Message', messageSchema)
+export default model('Message', messageSchema)
